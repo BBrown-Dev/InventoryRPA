@@ -22,6 +22,7 @@ def send_alerts(df, threshold=0):
     port = int(os.getenv("SMTP_PORT", 25))
     sender = os.getenv("EMAIL_FROM")
     recipient = os.getenv("EMAIL_TO")
+    smtp_pass = os.getenv("SMTP_PASS")
 
     if not smtp or not sender or not recipient:
         logger.error("SMTP configuration is incomplete")
@@ -35,5 +36,7 @@ def send_alerts(df, threshold=0):
     msg.set_content(f"Items needing restock:\n\n{body}")
 
     with smtplib.SMTP(smtp, port) as s:
+        s.starttls()  # Initiate secure connection
+        s.login(sender, smtp_pass)  # If authentication is needed
         s.send_message(msg)
     logger.info(f"Sent low-stock alert for {len(low)} items")
