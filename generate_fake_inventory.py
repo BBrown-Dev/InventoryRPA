@@ -1,3 +1,9 @@
+# Generate a fake inventory dataset with edge cases
+# This script creates a CSV file with inventory data, including negative quantities and duplicates.
+# It uses the Faker library to generate random descriptions and costs.
+# Ensure you have pandas and faker installed: pip install pandas faker
+# The output file will be saved in a 'data' directory.
+
 #!/usr/bin/env python3
 import pandas as pd
 from faker import Faker
