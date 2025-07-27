@@ -8,7 +8,7 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 
-def load_raw(path: str) -> pd.DataFrame:
+def load_inventory(path: str) -> pd.DataFrame:
     file = Path(path)
     if not file.exists():
         logger.error(f"Raw file not found: {path}")
