@@ -13,6 +13,7 @@ from services.update import write_clean
 from services.alert import send_alerts
 from metrics import Metrics
 
+
 # This function sets up the logging configuration for the script.
 def setup_logging():
     os.makedirs("logs", exist_ok=True)
@@ -21,12 +22,14 @@ def setup_logging():
         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
     )
 
+
 # This function sets up the logging configuration for the script.
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument("--input", default="data/inventory_raw.csv")
     p.add_argument("--cleaned", default="data/inventory_clean.csv")
     return p.parse_args()
+
 
 # This is the main function that orchestrates the loading, processing, and alerting of the inventory data.
 def main():
