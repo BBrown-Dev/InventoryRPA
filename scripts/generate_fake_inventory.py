@@ -30,5 +30,5 @@ if __name__ == "__main__":
     Path("../data").mkdir(exist_ok=True)
     rows = [make_row(s) for s in SKUS] + [make_row("SKU00001")]  # duplicate
     df = pd.DataFrame(rows)
-    df.to_csv("data/inventory_raw.csv", index=False)
+    df.to_csv("../data/inventory_raw.csv", index=False)
     print("✅ Fake inventory written to data/inventory_raw.csv")
