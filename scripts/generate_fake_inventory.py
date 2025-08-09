@@ -27,7 +27,7 @@ def make_row(sku):
     }
 
 if __name__ == "__main__":
-    Path("data").mkdir(exist_ok=True)
+    Path("../data").mkdir(exist_ok=True)
     rows = [make_row(s) for s in SKUS] + [make_row("SKU00001")]  # duplicate
     df = pd.DataFrame(rows)
     df.to_csv("data/inventory_raw.csv", index=False)
