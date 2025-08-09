@@ -56,10 +56,10 @@ Use created generator script `/scripts/generate_fake_logs.py` to simulate 10,000
 import json, random, time
 from datetime import datetime
 
-with open("data/fake_logs.json", "w") as f:
+with open("../data/fake_logs.json", "w") as f:
     for _ in range(10000):
         log = {
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": (datetime.now(timezone.utc) - timedelta(seconds=random.randint(0, 86400))).isoformat(),
             "duration": round(random.uniform(0.05, 2.5), 3),
             "status": random.choice(["success", "error", "retry"]),
             "warehouse_id": random.randint(1, 50)
